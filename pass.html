@@ -20,6 +20,10 @@
 
 <p id="result">This text will be replaced </p>
 
+<div class="container">
+    <img id="animal-image" width="200" height="200" src="akita.jpg" alt="Picture of Akita" onclick="newImage()">
+</div>
+
 <script> 
 var correct = 0;
 var wrong = 0;
@@ -39,6 +43,24 @@ function processPhrase (){
         out.innerHTML = "Wrong Count: " + wrong
     }
 
+}
+
+var usingImage = 1;
+function newImage() {
+    switch (usingImage) {
+        case 1:
+            document.getElementById("animal-image").src = "akita.jpg"
+            usingImage = 2
+            break
+        case 2:
+            document.getElementById("animal-image").src = "panther.jpg"
+            usingImage = 3
+            break
+        case 3:
+            document.getElementById("animal-image").src = "vulture.jpg"
+            usingImage = 1
+            break
+    }
 }
 </script>
 
