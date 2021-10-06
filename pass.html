@@ -42,24 +42,32 @@
 <script> 
 var correct = 0;
 var wrong = 0;
-var incorrect = 0;
+var counterP= 0;
+var counterN= 0;
 function processPhrase (){
+
     console.log("Getting form values")
     secret_phrase = document.getElementById("secret_phrase").value
     check_phrase = document.getElementById("check_phrase").value
     
     out = document.getElementById("result")
     if(secret_phrase == check_phrase){
+        counterN=0 ;
         correct += 1
         out.innerHTML = "Correct Count: " + correct
         alert("Access allowed.")
     } else {
+        counterN ++;
         wrong += 1
         out.innerHTML = "Wrong Count: " + wrong
         alert("Access denied.")
+        if(counterN >= 3){
+            if(wrong >=3){
+                incorrectPassphrase()
+            }
+        }
+
     }
-    if(correct == 0 && wrong == 3)
-    incorrectPassphrase()
 }
 
 function incorrectPassphrase(){
